@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasir Produk</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0ebe8; /* Warna dasar hijau */
+            color: #362f28; /* Warna teks coklat tua */
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Main styling */
+        main {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Product styling */
+        .produk {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        /* Button styling */
+        button {
+            padding: 10px 20px;
+            background-color: #4c6b5b; /* Warna hijau tua */
+            color: #fff; /* Warna teks putih */
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #344c3d; /* Warna hijau tua lebih gelap saat hover */
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Daftar Produk</h2>
+        <div id="produk-list">
+            <div class="produk">
+                <span>Indomie Sedan</span>
+                <span>Rp 2,000</span>
+                <input type="number" id="indomie-sedan" value="0">
+            </div>
+            <div class="produk">
+                <span>Indomie Goreng</span>
+                <span>Rp 3,000</span>
+                <input type="number" id="indomie-goreng" value="0">
+            </div>
+            <div class="produk">
+                <span>Sarimi Duo</span>
+                <span>Rp 4,000</span>
+                <input type="number" id="sarimi-duo" value="0">
+            </div>
+            <div class="produk">
+                <span>Mie Gaga</span>
+                <span>Rp 3,500</span>
+                <input type="number" id="mie-gaga" value="0">
+            </div>
+            <div class="produk">
+                <span>Mie Sakura</span>
+                <span>Rp 1,000</span>
+                <input type="number" id="mie-sakura" value="0">
+            </div>
+        </div>
+        <button onclick="hitungTotal()">Hitung Total</button>
+        <h3>Total Belanja: <span id="total">Rp 0</span></h3>
+    </main>
+
+    <script>
+        function hitungTotal() {
+            // Ambil nilai input dari masing-masing produk
+            var indomieSedan = document.getElementById('indomie-sedan').value * 2000;
+            var indomieGoreng = document.getElementById('indomie-goreng').value * 3000;
+            var sarimiDuo = document.getElementById('sarimi-duo').value * 4000;
+            var mieGaga = document.getElementById('mie-gaga').value * 3500;
+            var mieSakura = document.getElementById('mie-sakura').value * 1000;
+
+            // Hitung total belanja
+            var total = indomieSedan + indomieGoreng + sarimiDuo + mieGaga + mieSakura;
+
+            // Update tampilan total belanja
+            document.getElementById('total').textContent = 'Rp ' + total;
+        }
+    </script>
+</body>
+</html>
